@@ -1,8 +1,9 @@
 package sbu.cs.monsterClasses;
 
-public class Goblin
-{
-    public Goblin() {
+import sbu.cs.Monster;
 
+public class Goblin extends Monster {
+    public Goblin(int health, int attackPower) {
+        super(health, attackPower);
     }
 }
