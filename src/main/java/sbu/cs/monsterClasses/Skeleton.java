@@ -11,10 +11,18 @@ public class Skeleton extends Monster {
     @Override
     public void die() {
         if (deathCount > 0) {
-            isAlive = false;
+            die();
+            System.out.println("| SKELETON died");
         } else {
             health = maxHealth;
             deathCount += 1;
+            System.out.println("| SKELETON is vitalized again");
         }
+    }
+
+    @Override
+    public void takeDamage(int damage) {
+        super.takeDamage(damage);
+        System.out.println("| SKELETON hit by " + damage);
     }
 }

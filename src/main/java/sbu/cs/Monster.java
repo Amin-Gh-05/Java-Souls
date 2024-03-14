@@ -7,8 +7,8 @@ public abstract class Monster implements GameObject {
     protected boolean isAlive = true;
     public Monster(int health, int attackPower) {
         this.health = health;
-        this.attackPower = attackPower;
         maxHealth = health;
+        this.attackPower = attackPower;
     }
 
     @Override

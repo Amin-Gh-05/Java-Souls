@@ -16,8 +16,18 @@ public class Assassin extends Player {
         if (isInvisible) {
             target.takeDamage(attackPower * criticalMultiplier);
             isInvisible = false;
+            System.out.println("| ASSASSIN " + this.playerName + " attacked the enemy by Critical-Hit");
         } else {
             target.takeDamage(attackPower);
+        }
+    }
+
+    public void setInvisible(boolean isInvisible) {
+        this.isInvisible = isInvisible;
+        if (isInvisible) {
+            System.out.println("ASSASSIN " + this.playerName + " is gone invisible");
+        } else {
+            System.out.println("ASSASSIN " + this.playerName + " is gone visible");
         }
     }
 }

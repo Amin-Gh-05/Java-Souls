@@ -14,17 +14,25 @@ public class Knight extends Player {
     public void takeDamage(int damage) {
         if (isBlocking) {
             damage /= 2;
+            isBlocking = false;
         }
 
         if (damage > armor) {
             health -= damage - armor;
             armor = 0;
+            System.out.println("| KNIGHT " + this.playerName + " hit by " + damage);
         } else {
             armor -= damage;
+            System.out.println("| KNIGHT " + this.playerName + "'s armor is down by " + damage);
         }
     }
 
-    public void block() {
-        isBlocking = true;
+    public void setBlocking(boolean isBlocking) {
+        this.isBlocking = isBlocking;
+        if (isBlocking) {
+            System.out.println("KNIGHT " + this.playerName + " is blocking");
+        } else {
+            System.out.println("KNIGHT " + this.playerName + " put down the guard");
+        }
     }
 }
