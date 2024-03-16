@@ -5,6 +5,8 @@ import sbu.cs.monsterClasses.*;
 
 import java.util.*;
 
+import static java.lang.Thread.sleep;
+
 public class App {
     // two lists to store players and monsters in the game
     private static final List<Monster> monsterList = new ArrayList<>();
@@ -316,8 +318,12 @@ public class App {
             knightList.removeIf(p -> !(p.isAlive));
             wizardList.removeIf(p -> !(p.isAlive));
 
-            System.out.print("? press enter to go to the next round...");
-            read.nextLine();
+            System.out.println("| going for the next round...");
+            try {
+                sleep(2000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
             round += 1;
             System.out.println("----------------------------------------\n");
         }
