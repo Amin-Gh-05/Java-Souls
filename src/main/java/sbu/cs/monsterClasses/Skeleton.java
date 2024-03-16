@@ -4,8 +4,9 @@ import sbu.cs.Monster;
 
 public class Skeleton extends Monster {
     private int deathCount = 0;
+
     public Skeleton(int health, int attackPower) {
-        super(health, attackPower);
+        super("SKELETON", health, attackPower);
     }
 
     @Override
@@ -14,15 +15,10 @@ public class Skeleton extends Monster {
             die();
             System.out.println("| SKELETON died");
         } else {
+            // skeleton can be vitalized one
             health = maxHealth;
             deathCount += 1;
             System.out.println("| SKELETON is vitalized again");
         }
-    }
-
-    @Override
-    public void takeDamage(int damage) {
-        super.takeDamage(damage);
-        System.out.println("| SKELETON hit by " + damage);
     }
 }

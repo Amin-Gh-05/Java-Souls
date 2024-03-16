@@ -2,12 +2,15 @@ package sbu.cs;
 
 public abstract class Player implements GameObject {
     protected String playerName;
+    final protected String type;
     protected int health;
     protected int maxHealth;
     protected int attackPower;
     protected boolean isAlive = true;
-    public Player(String playerName, int health, int attackPower) {
+
+    public Player(String playerName, String type, int health, int attackPower) {
         this.playerName = playerName;
+        this.type = type;
         this.health = health;
         maxHealth = health;
         this.attackPower = attackPower;
@@ -20,19 +23,21 @@ public abstract class Player implements GameObject {
 
     @Override
     public void takeDamage(int damage) {
-        this.health -= damage;
-        if (health <= 0) {
-            die();
+        if (this.isAlive) {
+            this.health -= damage;
+            System.out.println("| player " + this.playerName + " got hit by " + damage);
+            System.out.println("| player " + this.playerName + "'s health is " + this.health);
+            if (health <= 0) {
+                die();
+            }
         }
-
-        System.out.println("| player " + this.playerName + "got hit by " + damage);
     }
 
     @Override
     public void die() {
         isAlive = false;
 
-        System.out.println("| player " + this.playerName + "died");
+        System.out.println("| player " + this.playerName + " died");
     }
 
     public int getMaxHealth() {

@@ -1,11 +1,14 @@
 package sbu.cs;
 
 public abstract class Monster implements GameObject {
+    protected final String type;
     protected int health;
     protected int maxHealth;
     protected int attackPower;
     protected boolean isAlive = true;
-    public Monster(int health, int attackPower) {
+
+    public Monster(String type, int health, int attackPower) {
+        this.type = type;
         this.health = health;
         maxHealth = health;
         this.attackPower = attackPower;
@@ -18,14 +21,19 @@ public abstract class Monster implements GameObject {
 
     @Override
     public void takeDamage(int damage) {
-        health -= damage;
-        if (health <= 0) {
-            die();
+        if (this.isAlive) {
+            health -= damage;
+            System.out.println("| " + this.type + " got hit by " + damage);
+            System.out.println("| " + this.type + "'s health is " + this.health);
+            if (health <= 0) {
+                die();
+            }
         }
     }
 
     @Override
     public void die() {
         isAlive = false;
+        System.out.println("| " + this.type + " died");
     }
 }

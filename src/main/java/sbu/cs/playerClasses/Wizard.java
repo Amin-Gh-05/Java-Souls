@@ -12,7 +12,7 @@ public class Wizard extends Player {
     private final int damageSpellCost;
 
     public Wizard(String playerName, int health, int attackPower, int mana, int healSpellPower, int healSpellCost, int damageSpellPower, int damageSpellCost) {
-        super(playerName, health, attackPower);
+        super(playerName, "WIZARD", health, attackPower);
         this.mana = mana;
         maxMana = mana;
         this.healSpellPower = healSpellPower;
@@ -30,6 +30,7 @@ public class Wizard extends Player {
             }
 
             mana -= healSpellCost;
+            System.out.println("| WIZARD " + this.playerName + " cast a healing spell");
             System.out.println("| WIZARD " + this.playerName + " healed himself by " + this.healSpellPower);
         } else {
             System.out.println("| WIZARD " + this.playerName + "'s mana is not enough");
@@ -40,12 +41,16 @@ public class Wizard extends Player {
         if (damageSpellCost <= mana) {
             target.takeDamage(damageSpellPower);
             mana -= damageSpellCost;
-            System.out.println("| WIZARD " + this.playerName + "cast Damage-Spell");
+            System.out.println("| WIZARD " + this.playerName + " cast a damage spell");
+            System.out.println("| WIZARD " + this.playerName + " hit enemy by " + this.damageSpellPower);
         }
     }
 
-    public void setMana(int mana) {
-        this.mana = mana;
+    public void increaseMana(int percent) {
+        mana += mana * percent / 100;
+        if (mana > maxMana) {
+            mana = maxMana;
+        }
         System.out.println("| WIZARD " + this.playerName + "'s mana is " + mana);
     }
 }

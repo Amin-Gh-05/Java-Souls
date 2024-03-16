@@ -6,17 +6,19 @@ import sbu.cs.Player;
 public class Assassin extends Player {
     private boolean isInvisible = false;
     private final int criticalMultiplier;
+
     public Assassin(String playerName, int health, int attackPower, int criticalMultiplier) {
-        super(playerName, health, attackPower);
+        super(playerName, "ASSASSIN", health, attackPower);
         this.criticalMultiplier = criticalMultiplier;
     }
 
     @Override
     public void attack(GameObject target) {
         if (isInvisible) {
+            // multiplies damage when assassin's invisible
+            System.out.println("| ASSASSIN " + this.playerName + " attacked the enemy by critical hit");
             target.takeDamage(attackPower * criticalMultiplier);
             isInvisible = false;
-            System.out.println("| ASSASSIN " + this.playerName + " attacked the enemy by Critical-Hit");
         } else {
             target.takeDamage(attackPower);
         }
@@ -24,10 +26,5 @@ public class Assassin extends Player {
 
     public void setInvisible(boolean isInvisible) {
         this.isInvisible = isInvisible;
-        if (isInvisible) {
-            System.out.println("ASSASSIN " + this.playerName + " is gone invisible");
-        } else {
-            System.out.println("ASSASSIN " + this.playerName + " is gone visible");
-        }
     }
 }
