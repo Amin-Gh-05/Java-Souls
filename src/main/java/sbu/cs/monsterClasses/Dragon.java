@@ -34,6 +34,8 @@ public class Dragon extends Monster {
         }
         System.out.println(RED + "| DRAGON threw fire");
         System.out.println("| every player hit by DRAGON's fire attack" + WHITE);
+        isRaged = false;
+        hitCount = 0;
     }
 
     public boolean isRaged() {

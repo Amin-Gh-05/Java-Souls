@@ -38,32 +38,43 @@ public class App {
                                                                                                          \s
                 """);
         createCharacter();
-        spawnMonster("Goblin");
-        spawnMonster("Skeleton");
+        createCharacter();
+        for (int i = 0; i < 3; i++) {
+            int dice = rollDice();
+            if (dice == 1) {
+                spawnMonster("DEMON");
+            } else if (dice == 2) {
+                spawnMonster("DRAGON");
+            } else if (dice == 3 || dice == 4) {
+                spawnMonster("SKELETON");
+            } else if (dice == 5 || dice == 6) {
+                spawnMonster("GOBLIN");
+            }
+        }
         startBattle();
     }
 
     public static void createCharacter() {
         // scanner to get input from user
-        System.out.print("? choose your class (Assassin, Knight, Wizard): ");
+        System.out.print("? choose your class (ASSASSIN, KNIGHT, WIZARD): ");
         String charClass = read.nextLine();
         // create character based on the class and add it to playerList
         switch (charClass) {
-            case "Assassin" -> {
+            case "ASSASSIN" -> {
                 System.out.print("? enter your character's name (with no space): ");
                 String name = read.nextLine();
                 Assassin player = new Assassin(name, 100, 12, 3);
                 playerList.add(player);
                 assassinList.add(player);
             }
-            case "Knight" -> {
+            case "KNIGHT" -> {
                 System.out.print("? enter your character's name (with no space): ");
                 String name = read.nextLine();
                 Knight player = new Knight(name, 120, 10, 30);
                 playerList.add(player);
                 knightList.add(player);
             }
-            case "Wizard" -> {
+            case "WIZARD" -> {
                 System.out.print("? enter your character's name (with no space): ");
                 String name = read.nextLine();
                 Wizard player = new Wizard(name, 80, 8, 50, 30, 30, 25, 40);
@@ -77,22 +88,22 @@ public class App {
     public static void spawnMonster(String name) {
         // spawn a monster based on the type
         switch (name) {
-            case "Goblin" -> {
+            case "GOBLIN" -> {
                 Goblin monster = new Goblin(40, 15);
                 monsterList.add(monster);
                 goblinList.add(monster);
             }
-            case "Dragon" -> {
+            case "DRAGON" -> {
                 Dragon monster = new Dragon(150, 20, 45);
                 monsterList.add(monster);
                 dragonList.add(monster);
             }
-            case "Skeleton" -> {
+            case "SKELETON" -> {
                 Skeleton monster = new Skeleton(30, 10);
                 monsterList.add(monster);
                 skeletonList.add(monster);
             }
-            case "Demon" -> {
+            case "DEMON" -> {
                 Demon monster = new Demon(120, 20, 0.1);
                 monsterList.add(monster);
                 demonList.add(monster);
@@ -198,13 +209,13 @@ public class App {
             // add monster every 2 round
             if (round % 2 == 0) {
                 if (dice == 1) {
-                    spawnMonster("Demon");
+                    spawnMonster("DEMON");
                 } else if (dice == 2) {
-                    spawnMonster("Dragon");
+                    spawnMonster("DRAGON");
                 } else if (dice == 3 || dice == 4) {
-                    spawnMonster("Skeleton");
+                    spawnMonster("SKELETON");
                 } else if (dice == 5 || dice == 6) {
-                    spawnMonster("Goblin");
+                    spawnMonster("GOBLIN");
                 }
             }
 

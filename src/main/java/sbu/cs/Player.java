@@ -49,5 +49,9 @@ public abstract class Player implements GameObject {
 
     public void setMaxHealth(int maxHealth) {
         this.maxHealth = maxHealth;
+        if (health > maxHealth) {
+            health = this.maxHealth;
+        }
+        System.out.println(RED + "| player " + this.playerName + "'s maximum health decreased to " + this.maxHealth + WHITE);
     }
 }

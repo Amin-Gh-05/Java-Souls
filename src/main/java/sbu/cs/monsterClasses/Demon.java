@@ -31,10 +31,11 @@ public class Demon extends Monster {
         for (Player p : players) {
             // reduce health and power of enemies
             p.setMaxHealth((int) (p.getMaxHealth() * (1 - soulEating)));
-            isRaged = false;
         }
         System.out.println(RED + "| DEMON ate soul of players");
         System.out.println("| every player's maximum health is decreased by " + soulEating * 100 + "%" + WHITE);
+        isRaged = false;
+        hitCount = 0;
     }
 
     public boolean isRaged() {
