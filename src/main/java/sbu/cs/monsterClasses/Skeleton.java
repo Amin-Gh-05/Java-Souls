@@ -7,19 +7,19 @@ public class Skeleton extends Monster {
 
     public Skeleton(int health, int attackPower) {
         super("SKELETON", health, attackPower);
-        System.out.println("| SKELETON is now spawned");
+        System.out.println(RED + "| SKELETON is now spawned" + WHITE);
     }
 
     @Override
     public void die() {
         if (deathCount > 0) {
             die();
-            System.out.println("| SKELETON died");
+            System.out.println(GREEN + "| SKELETON died" + WHITE);
         } else {
             // skeleton can be vitalized one
             health = maxHealth;
             deathCount += 1;
-            System.out.println("| SKELETON is vitalized again");
+            System.out.println(RED + "| SKELETON is vitalized again" + WHITE);
         }
     }
 }

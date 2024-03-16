@@ -13,7 +13,7 @@ public class Dragon extends Monster {
     public Dragon(int health, int attackPower, int fireDamage) {
         super("DRAGON", health, attackPower);
         this.fireDamage = fireDamage;
-        System.out.println("| DRAGON is now spawned");
+        System.out.println(RED + "| DRAGON is now spawned" + WHITE);
     }
 
     @Override
@@ -23,7 +23,7 @@ public class Dragon extends Monster {
         hitCount += 1;
         if (hitCount >= 3) {
             isRaged = true;
-            System.out.println("| DRAGON on rage mode");
+            System.out.println(RED + "| DRAGON on rage mode" + WHITE);
         }
     }
 
@@ -32,8 +32,8 @@ public class Dragon extends Monster {
         for (Player p : players) {
             p.takeDamage(fireDamage);
         }
-        System.out.println("| DRAGON threw fire");
-        System.out.println("| every player hit by DRAGON's fire attack");
+        System.out.println(RED + "| DRAGON threw fire");
+        System.out.println("| every player hit by DRAGON's fire attack" + WHITE);
     }
 
     public boolean isRaged() {

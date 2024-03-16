@@ -9,7 +9,7 @@ public class Knight extends Player {
     public Knight(String playerName, int health, int attackPower, int armor) {
         super(playerName, "KNIGHT", health, attackPower);
         this.armor = armor;
-        System.out.println("| KNIGHT " + this.playerName + " is now spawned");
+        System.out.println(GREEN + "| KNIGHT " + this.playerName + " is now spawned" + WHITE);
     }
 
     @Override
@@ -23,21 +23,21 @@ public class Knight extends Player {
         if (damage > armor) {
             health -= damage - armor;
             armor = 0;
-            System.out.println("| player " + this.playerName + " hit by " + damage);
-            System.out.println("| player " + this.playerName + "'s health is " + this.health);
+            System.out.println(RED + "| player " + this.playerName + " hit by " + damage + WHITE);
+            System.out.println(GREEN + "| player " + this.playerName + "'s health is " + this.health + WHITE);
         } else {
             armor -= damage;
-            System.out.println("| player " + this.playerName + "'s armor is down by " + damage);
-            System.out.println("| player " + this.playerName + "'s armor left is " + this.armor);
+            System.out.println(RED + "| player " + this.playerName + "'s armor is down by " + damage + WHITE);
+            System.out.println(GREEN + "| player " + this.playerName + "'s armor left is " + this.armor + WHITE);
         }
     }
 
     public void setBlocking(boolean isBlocking) {
         this.isBlocking = isBlocking;
         if (isBlocking) {
-            System.out.println("| KNIGHT " + this.playerName + "'s guard is up");
+            System.out.println(GREEN + "| KNIGHT " + this.playerName + "'s guard is up" + WHITE);
         } else {
-            System.out.println("| KNIGHT " + this.playerName + "'s guard is down");
+            System.out.println(RED + "| KNIGHT " + this.playerName + "'s guard is down" + WHITE);
         }
     }
 }

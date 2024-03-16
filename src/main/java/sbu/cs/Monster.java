@@ -6,6 +6,9 @@ public abstract class Monster implements GameObject {
     protected int maxHealth;
     protected int attackPower;
     protected boolean isAlive = true;
+    public static final String WHITE = "\u001B[0m";
+    public static final String RED = "\u001B[31m";
+    public static final String GREEN = "\u001B[32m";
 
     public Monster(String type, int health, int attackPower) {
         this.type = type;
@@ -23,8 +26,8 @@ public abstract class Monster implements GameObject {
     public void takeDamage(int damage) {
         if (this.isAlive) {
             health -= damage;
-            System.out.println("| " + this.type + " got hit by " + damage);
-            System.out.println("| " + this.type + "'s health is " + this.health);
+            System.out.println(GREEN + "| " + this.type + " got hit by " + damage + WHITE);
+            System.out.println(RED + "| " + this.type + "'s health is " + this.health + WHITE);
             if (health <= 0) {
                 die();
             }
@@ -34,6 +37,6 @@ public abstract class Monster implements GameObject {
     @Override
     public void die() {
         isAlive = false;
-        System.out.println("| " + this.type + " died");
+        System.out.println(GREEN + "| " + this.type + " died" + WHITE);
     }
 }

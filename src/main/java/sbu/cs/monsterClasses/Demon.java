@@ -13,7 +13,7 @@ public class Demon extends Monster {
     public Demon(int health, int attackPower, double soulEating) {
         super("DEMON", health, attackPower);
         this.soulEating = soulEating;
-        System.out.println("| DEMON is now spawned");
+        System.out.println(RED + "| DEMON is now spawned" + WHITE);
     }
 
     @Override
@@ -23,7 +23,7 @@ public class Demon extends Monster {
         hitCount += 1;
         if (hitCount >= 3) {
             isRaged = true;
-            System.out.println("| DEMON on rage mode");
+            System.out.println(RED + "| DEMON on rage mode" + WHITE);
         }
     }
 
@@ -33,8 +33,8 @@ public class Demon extends Monster {
             p.setMaxHealth((int) (p.getMaxHealth() * (1 - soulEating)));
             isRaged = false;
         }
-        System.out.println("| DEMON ate soul of players");
-        System.out.println("| every player's maximum health is decreased by " + soulEating * 100 + "%");
+        System.out.println(RED + "| DEMON ate soul of players");
+        System.out.println("| every player's maximum health is decreased by " + soulEating * 100 + "%" + WHITE);
     }
 
     public boolean isRaged() {

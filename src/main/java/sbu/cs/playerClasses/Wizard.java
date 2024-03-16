@@ -19,7 +19,7 @@ public class Wizard extends Player {
         this.healSpellCost = healSpellCost;
         this.damageSpellPower = damageSpellPower;
         this.damageSpellCost = damageSpellCost;
-        System.out.println("| WIZARD " + this.playerName + " is now spawned");
+        System.out.println(GREEN + "| WIZARD " + this.playerName + " is now spawned" + WHITE);
     }
 
     public void castHealSpell() {
@@ -31,10 +31,10 @@ public class Wizard extends Player {
             }
 
             mana -= healSpellCost;
-            System.out.println("| WIZARD " + this.playerName + " cast a healing spell");
-            System.out.println("| WIZARD " + this.playerName + " healed himself by " + this.healSpellPower);
+            System.out.println(GREEN + "| WIZARD " + this.playerName + " cast a healing spell");
+            System.out.println("| WIZARD " + this.playerName + " healed himself by " + this.healSpellPower + WHITE);
         } else {
-            System.out.println("| WIZARD " + this.playerName + "'s mana is not enough");
+            System.out.println(RED + "| WIZARD " + this.playerName + "'s mana is not enough" + WHITE);
         }
     }
 
@@ -42,8 +42,8 @@ public class Wizard extends Player {
         if (damageSpellCost <= mana) {
             target.takeDamage(damageSpellPower);
             mana -= damageSpellCost;
-            System.out.println("| WIZARD " + this.playerName + " cast a damage spell");
-            System.out.println("| WIZARD " + this.playerName + " hit enemy by " + this.damageSpellPower);
+            System.out.println(GREEN + "| WIZARD " + this.playerName + " cast a damage spell");
+            System.out.println("| WIZARD " + this.playerName + " hit enemy by " + this.damageSpellPower + WHITE);
         }
     }
 
@@ -52,6 +52,6 @@ public class Wizard extends Player {
         if (mana > maxMana) {
             mana = maxMana;
         }
-        System.out.println("| WIZARD " + this.playerName + "'s mana is " + mana);
+        System.out.println(GREEN + "| WIZARD " + this.playerName + "'s mana is " + mana + WHITE);
     }
 }

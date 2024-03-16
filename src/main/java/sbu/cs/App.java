@@ -159,12 +159,30 @@ public class App {
         while (true) {
             // checks if there is any monster left
             if (monsterList.isEmpty()) {
-                System.out.println("! YOU WON");
+                System.out.println("""
+                        ##  ##    ## ##   ##  ###           ##   ##   ## ##   ###  ## \s
+                        ##  ##   ##   ##  ##   ##           ##   ##  ##   ##    ## ## \s
+                        ##  ##   ##   ##  ##   ##           ##   ##  ##   ##   # ## # \s
+                         ## ##   ##   ##  ##   ##           ## # ##  ##   ##   ## ##  \s
+                          ##     ##   ##  ##   ##           # ### #  ##   ##   ##  ## \s
+                          ##     ##   ##  ##   ##            ## ##   ##   ##   ##  ## \s
+                          ##      ## ##    ## ##            ##   ##   ## ##   ###  ## \s
+                                                                                      \s
+                        """);
                 break;
             }
             // checks if there is any player left
             if (playerList.isEmpty()) {
-                System.out.println("! GAME OVER");
+                System.out.println("""
+                         ## ##     ##     ##   ##  ### ###            ## ##   ### ###  ### ###  ### ##  \s
+                        ##   ##     ##     ## ##    ##  ##           ##   ##   ##  ##   ##  ##   ##  ## \s
+                        ##        ## ##   # ### #   ##               ##   ##   ##  ##   ##       ##  ## \s
+                        ##  ###   ##  ##  ## # ##   ## ##            ##   ##   ##  ##   ## ##    ## ##  \s
+                        ##   ##   ## ###  ##   ##   ##               ##   ##   ### ##   ##       ## ##  \s
+                        ##   ##   ##  ##  ##   ##   ##  ##           ##   ##    ###     ##  ##   ##  ## \s
+                         ## ##   ###  ##  ##   ##  ### ###            ## ##      ##    ### ###  #### ## \s
+                                                                                                        \s
+                        """);
                 break;
             }
 

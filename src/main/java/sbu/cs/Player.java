@@ -7,6 +7,9 @@ public abstract class Player implements GameObject {
     protected int maxHealth;
     protected int attackPower;
     protected boolean isAlive = true;
+    public static final String WHITE = "\u001B[0m";
+    public static final String RED = "\u001B[31m";
+    public static final String GREEN = "\u001B[32m";
 
     public Player(String playerName, String type, int health, int attackPower) {
         this.playerName = playerName;
@@ -25,8 +28,8 @@ public abstract class Player implements GameObject {
     public void takeDamage(int damage) {
         if (this.isAlive) {
             this.health -= damage;
-            System.out.println("| player " + this.playerName + " got hit by " + damage);
-            System.out.println("| player " + this.playerName + "'s health is " + this.health);
+            System.out.println(RED + "| player " + this.playerName + " got hit by " + damage + WHITE);
+            System.out.println(GREEN + "| player " + this.playerName + "'s health is " + this.health + WHITE);
             if (health <= 0) {
                 die();
             }
@@ -37,7 +40,7 @@ public abstract class Player implements GameObject {
     public void die() {
         isAlive = false;
 
-        System.out.println("| player " + this.playerName + " died");
+        System.out.println(RED + "| player " + this.playerName + " died" + WHITE);
     }
 
     public int getMaxHealth() {

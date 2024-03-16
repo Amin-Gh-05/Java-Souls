@@ -10,14 +10,14 @@ public class Assassin extends Player {
     public Assassin(String playerName, int health, int attackPower, int criticalMultiplier) {
         super(playerName, "ASSASSIN", health, attackPower);
         this.criticalMultiplier = criticalMultiplier;
-        System.out.println("| ASSASSIN " + this.playerName + " is now spawned");
+        System.out.println(GREEN + "| ASSASSIN " + this.playerName + " is now spawned" + WHITE);
     }
 
     @Override
     public void attack(GameObject target) {
         if (isInvisible) {
             // multiplies damage when assassin's invisible
-            System.out.println("| ASSASSIN " + this.playerName + " attacked the enemy by critical hit");
+            System.out.println(GREEN + "| ASSASSIN " + this.playerName + " attacked the enemy by critical hit" + WHITE);
             target.takeDamage(attackPower * criticalMultiplier);
             isInvisible = false;
         } else {
@@ -28,9 +28,9 @@ public class Assassin extends Player {
     public void setInvisible(boolean isInvisible) {
         this.isInvisible = isInvisible;
         if (isInvisible) {
-            System.out.println("| ASSASSIN " + this.playerName + " is gone invisible");
+            System.out.println(GREEN + "| ASSASSIN " + this.playerName + " is gone invisible" + WHITE);
         } else {
-            System.out.println("| ASSASSIN " + this.playerName + " is gone visible");
+            System.out.println(RED + "| ASSASSIN " + this.playerName + " is gone visible" + WHITE);
         }
     }
 }
