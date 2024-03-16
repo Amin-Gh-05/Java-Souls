@@ -9,6 +9,7 @@ public class Knight extends Player {
     public Knight(String playerName, int health, int attackPower, int armor) {
         super(playerName, "KNIGHT", health, attackPower);
         this.armor = armor;
+        System.out.println("| KNIGHT " + this.playerName + " is now spawned");
     }
 
     @Override
@@ -33,5 +34,10 @@ public class Knight extends Player {
 
     public void setBlocking(boolean isBlocking) {
         this.isBlocking = isBlocking;
+        if (isBlocking) {
+            System.out.println("| KNIGHT " + this.playerName + "'s guard is up");
+        } else {
+            System.out.println("| KNIGHT " + this.playerName + "'s guard is down");
+        }
     }
 }

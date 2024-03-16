@@ -19,6 +19,7 @@ public class Wizard extends Player {
         this.healSpellCost = healSpellCost;
         this.damageSpellPower = damageSpellPower;
         this.damageSpellCost = damageSpellCost;
+        System.out.println("| WIZARD " + this.playerName + " is now spawned");
     }
 
     public void castHealSpell() {

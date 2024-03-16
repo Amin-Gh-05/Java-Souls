@@ -13,6 +13,7 @@ public class Dragon extends Monster {
     public Dragon(int health, int attackPower, int fireDamage) {
         super("DRAGON", health, attackPower);
         this.fireDamage = fireDamage;
+        System.out.println("| DRAGON is now spawned");
     }
 
     @Override
@@ -31,7 +32,7 @@ public class Dragon extends Monster {
         for (Player p : players) {
             p.takeDamage(fireDamage);
         }
-
+        System.out.println("| DRAGON threw fire");
         System.out.println("| every player hit by DRAGON's fire attack");
     }
 

@@ -10,6 +10,7 @@ public class Assassin extends Player {
     public Assassin(String playerName, int health, int attackPower, int criticalMultiplier) {
         super(playerName, "ASSASSIN", health, attackPower);
         this.criticalMultiplier = criticalMultiplier;
+        System.out.println("| ASSASSIN " + this.playerName + " is now spawned");
     }
 
     @Override
@@ -26,5 +27,10 @@ public class Assassin extends Player {
 
     public void setInvisible(boolean isInvisible) {
         this.isInvisible = isInvisible;
+        if (isInvisible) {
+            System.out.println("| ASSASSIN " + this.playerName + " is gone invisible");
+        } else {
+            System.out.println("| ASSASSIN " + this.playerName + " is gone visible");
+        }
     }
 }

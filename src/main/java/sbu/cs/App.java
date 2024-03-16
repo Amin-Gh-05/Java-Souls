@@ -53,7 +53,6 @@ public class App {
                 Assassin player = new Assassin(name, 100, 12, 3);
                 playerList.add(player);
                 assassinList.add(player);
-                System.out.println("| ASSASSIN " + player.playerName + " is now spawned");
             }
             case "Knight" -> {
                 System.out.print("? enter your character's name (with no space): ");
@@ -61,7 +60,6 @@ public class App {
                 Knight player = new Knight(name, 120, 10, 30);
                 playerList.add(player);
                 knightList.add(player);
-                System.out.println("| KNIGHT " + player.playerName + " is now spawned");
             }
             case "Wizard" -> {
                 System.out.print("? enter your character's name (with no space): ");
@@ -69,7 +67,6 @@ public class App {
                 Wizard player = new Wizard(name, 80, 8, 50, 30, 30, 25, 40);
                 playerList.add(player);
                 wizardList.add(player);
-                System.out.println("| WIZARD " + player.playerName + " is now spawned");
             }
             default -> System.out.println("| please enter a valid choice!");
         }
@@ -82,25 +79,21 @@ public class App {
                 Goblin monster = new Goblin(40, 15);
                 monsterList.add(monster);
                 goblinList.add(monster);
-                System.out.println("| GOBLIN is now spawned");
             }
             case "Dragon" -> {
                 Dragon monster = new Dragon(150, 20, 45);
                 monsterList.add(monster);
                 dragonList.add(monster);
-                System.out.println("| DRAGON is now spawned");
             }
             case "Skeleton" -> {
                 Skeleton monster = new Skeleton(30, 10);
                 monsterList.add(monster);
                 skeletonList.add(monster);
-                System.out.println("| SKELETON is now spawned");
             }
             case "Demon" -> {
                 Demon monster = new Demon(120, 20, 0.1);
                 monsterList.add(monster);
                 demonList.add(monster);
-                System.out.println("| DEMON is now spawned");
             }
         }
     }
@@ -214,12 +207,10 @@ public class App {
                 if (dice == 5 || dice == 6) {
                     for (Assassin a : assassinList) {
                         a.setInvisible(true);
-                        System.out.println("| ASSASSINS are gone invisible");
                     }
                 } else if (dice == 1 || dice == 2) {
                     for (Assassin a : assassinList) {
                         a.setInvisible(false);
-                        System.out.println("| ASSASSINS are gone visible");
                     }
                 }
             }
@@ -228,12 +219,10 @@ public class App {
                 if (dice == 5 || dice == 6) {
                     for (Knight k : knightList) {
                         k.setBlocking(true);
-                        System.out.println("| KNIGHTS' guard is up");
                     }
                 } else if (dice == 1 || dice == 2) {
                     for (Knight k : knightList) {
                         k.setBlocking(false);
-                        System.out.println("| KNIGHTS' guard is down");
                     }
                 }
             }
@@ -284,14 +273,12 @@ public class App {
             for (Demon d : demonList) {
                 if (d.isRaged()) {
                     d.eatSoul(playerList);
-                    System.out.println("| DEMON ate soul of players");
                 }
             }
             // dragon rage attack
             for (Dragon d : dragonList) {
                 if (d.isRaged()) {
                     d.fireAttack(playerList);
-                    System.out.println("| DRAGON threw fire");
                 }
             }
             // two of monsters attack randomly

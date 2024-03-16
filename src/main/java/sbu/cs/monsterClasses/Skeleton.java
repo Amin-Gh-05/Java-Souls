@@ -7,6 +7,7 @@ public class Skeleton extends Monster {
 
     public Skeleton(int health, int attackPower) {
         super("SKELETON", health, attackPower);
+        System.out.println("| SKELETON is now spawned");
     }
 
     @Override

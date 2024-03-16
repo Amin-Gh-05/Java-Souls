@@ -13,6 +13,7 @@ public class Demon extends Monster {
     public Demon(int health, int attackPower, double soulEating) {
         super("DEMON", health, attackPower);
         this.soulEating = soulEating;
+        System.out.println("| DEMON is now spawned");
     }
 
     @Override
@@ -32,7 +33,7 @@ public class Demon extends Monster {
             p.setMaxHealth((int) (p.getMaxHealth() * (1 - soulEating)));
             isRaged = false;
         }
-
+        System.out.println("| DEMON ate soul of players");
         System.out.println("| every player's maximum health is decreased by " + soulEating * 100 + "%");
     }
 
