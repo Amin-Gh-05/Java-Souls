@@ -23,12 +23,16 @@ public class Knight extends Player {
         if (damage > armor) {
             health -= damage - armor;
             armor = 0;
-            System.out.println(RED + "| player " + this.playerName + " hit by " + damage + WHITE);
-            System.out.println(GREEN + "| player " + this.playerName + "'s health is " + this.health + WHITE);
+            System.out.println(RED + "| KNIGHT " + this.playerName + " hit by " + damage + WHITE);
+            System.out.println(GREEN + "| KNIGHT " + this.playerName + "'s health is " + this.health + WHITE);
         } else {
             armor -= damage;
-            System.out.println(RED + "| player " + this.playerName + "'s armor is down by " + damage + WHITE);
-            System.out.println(GREEN + "| player " + this.playerName + "'s armor left is " + this.armor + WHITE);
+            System.out.println(RED + "| KNIGHT " + this.playerName + "'s armor is down by " + damage + WHITE);
+            System.out.println(GREEN + "| KNIGHT " + this.playerName + "'s armor left is " + this.armor + WHITE);
+        }
+
+        if (health <= 0) {
+            die();
         }
     }
 

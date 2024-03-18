@@ -39,4 +39,8 @@ public abstract class Monster implements GameObject {
         isAlive = false;
         System.out.println(GREEN + "| " + this.type + " died" + WHITE);
     }
+
+    public boolean isAlive() {
+        return isAlive;
+    }
 }

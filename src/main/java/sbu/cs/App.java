@@ -18,6 +18,7 @@ public class App {
     private static final List<Assassin> assassinList = new ArrayList<>();
     private static final List<Knight> knightList = new ArrayList<>();
     private static final List<Wizard> wizardList = new ArrayList<>();
+    private static final List<Vegabond> vegabondList = new ArrayList<>();
     static Scanner read = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -80,6 +81,13 @@ public class App {
                 Wizard player = new Wizard(name, 80, 8, 50, 30, 30, 25, 40);
                 playerList.add(player);
                 wizardList.add(player);
+            }
+            case "VEGABOND" -> {
+                System.out.print("? enter your character's name (with no space): ");
+                String name = read.nextLine();
+                Vegabond player = new Vegabond(name, 100, 10, 60, 15, 40, 25);
+                playerList.add(player);
+                vegabondList.add(player);
             }
             default -> System.out.println("| please enter a valid choice!");
         }
@@ -272,15 +280,44 @@ public class App {
                         w.increaseMana(20);
                     }
                 }
+
+                Random spell = new Random();
+                for (Wizard w : wizardList) {
+                    int cast = spell.nextInt(3);
+                    switch (cast) {
+                        case 1 -> w.castHealSpell(playerList);
+                        case 2 -> {
+                            Random target = new Random();
+                            w.castDamageSpell(monsterList.get(target.nextInt(monsterList.size())));
+                        }
+                    }
+                }
             }
-            Random spell = new Random();
-            for (Wizard w : wizardList) {
-                int cast = spell.nextInt(3);
-                switch (cast) {
-                    case 1 -> w.castHealSpell();
-                    case 2 -> {
-                        Random target = new Random();
-                        w.castDamageSpell(monsterList.get(target.nextInt(monsterList.size())));
+            // set vegabond dodging and heavy attacks
+            if (!(vegabondList.isEmpty())) {
+                for (Vegabond v: vegabondList) {
+                    v.setDodging(false);
+                }
+                if (dice == 5 || dice == 6) {
+                    for (Vegabond v: vegabondList) {
+                        v.increaseStamina(40);
+                        v.dodge();
+                    }
+                } else if (dice == 3 || dice == 4) {
+                    for (Vegabond v: vegabondList) {
+                        v.increaseStamina(30);
+                    }
+                } else if (dice == 1 || dice == 2) {
+                    for (Vegabond v: vegabondList) {
+                        v.increaseStamina(20);
+                    }
+                }
+
+                Random choice = new Random();
+                for (Vegabond v: vegabondList) {
+                    int attack = choice.nextInt(3);
+                    if (attack == 2) {
+                        v.heavyAttack(monsterList);
                     }
                 }
             }
@@ -328,6 +365,7 @@ public class App {
             assassinList.removeIf(p -> !(p.isAlive));
             knightList.removeIf(p -> !(p.isAlive));
             wizardList.removeIf(p -> !(p.isAlive));
+            vegabondList.removeIf(p -> !(p.isAlive));
 
             System.out.println("| going for the next round...");
             try {

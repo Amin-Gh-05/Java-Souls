@@ -28,8 +28,8 @@ public abstract class Player implements GameObject {
     public void takeDamage(int damage) {
         if (this.isAlive) {
             this.health -= damage;
-            System.out.println(RED + "| player " + this.playerName + " got hit by " + damage + WHITE);
-            System.out.println(GREEN + "| player " + this.playerName + "'s health is " + this.health + WHITE);
+            System.out.println(RED + "| " + this.type + " " + this.playerName + " got hit by " + damage + WHITE);
+            System.out.println(GREEN + "| " + this.type + " " + this.playerName + "'s health is " + this.health + WHITE);
             if (health <= 0) {
                 die();
             }
@@ -40,7 +40,15 @@ public abstract class Player implements GameObject {
     public void die() {
         isAlive = false;
 
-        System.out.println(RED + "| player " + this.playerName + " died" + WHITE);
+        System.out.println(RED + "| " + this.type + " " + this.playerName + " died" + WHITE);
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
     }
 
     public int getMaxHealth() {
@@ -52,6 +60,10 @@ public abstract class Player implements GameObject {
         if (health > maxHealth) {
             health = this.maxHealth;
         }
-        System.out.println(RED + "| player " + this.playerName + "'s maximum health decreased to " + this.maxHealth + WHITE);
+        System.out.println(RED + "| " + this.type + " " + this.playerName + "'s maximum health decreased to " + this.maxHealth + WHITE);
+    }
+
+    public boolean isAlive() {
+        return isAlive;
     }
 }

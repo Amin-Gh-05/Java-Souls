@@ -3,6 +3,8 @@ package sbu.cs.playerClasses;
 import sbu.cs.GameObject;
 import sbu.cs.Player;
 
+import java.util.List;
+
 public class Wizard extends Player {
     private int mana;
     private final int maxMana;
@@ -22,14 +24,14 @@ public class Wizard extends Player {
         System.out.println(GREEN + "| WIZARD " + this.playerName + " is now spawned" + WHITE);
     }
 
-    public void castHealSpell() {
+    public void castHealSpell(List<Player> players) {
         if (healSpellCost <= mana) {
-            if (health + healSpellPower > maxHealth) {
-                health = maxHealth;
-            } else {
-                health += healSpellPower;
+            // heal every player by spell
+            for (Player p: players) {
+                if (p.isAlive()) {
+                    p.setHealth(Math.min(p.getHealth() + healSpellPower, p.getMaxHealth()));
+                }
             }
-
             mana -= healSpellCost;
             System.out.println(GREEN + "| WIZARD " + this.playerName + " cast a healing spell");
             System.out.println("| WIZARD " + this.playerName + " healed himself by " + this.healSpellPower + WHITE);
