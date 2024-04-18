@@ -57,7 +57,7 @@ public class App {
 
     public static void createCharacter() {
         // scanner to get input from user
-        System.out.print("? choose your class (ASSASSIN, KNIGHT, WIZARD): ");
+        System.out.print("? choose your class (ASSASSIN, KNIGHT, WIZARD, VEGABOND): ");
         String charClass = read.nextLine();
         // create character based on the class and add it to playerList
         switch (charClass) {
